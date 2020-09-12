@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<style>
+.form11{
+    width: 60%;
+    height: auto;
+    background-color:azure;
+    padding: 30px;
+    margin: auto;
+    font-style: italic;
+    font-size: larger;
+    align-self:center;
+}
+textarea{
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=text],[type=text-area], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 30%;
+  background-color:coral;
+  color: white;
+  padding: 14px 20px;
+  margin-left: 30%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color:crimson;
+}
+h3{
+    text-align: center;
+}
+body{
+  background-image: url("https://images.unsplash.com/photo-1554034483-04fda0d3507b?ixlib=rb-1.2.1&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+</style>
+<body>
+
+<h3>Submit your Bug QA Engineer</h3>
+
+<div class="form11">
+  <form action="/issues" method="POST">
+    <label for="name">Engineer_name</label><br>
+    <input type="text" id="name" placeholder="Engineers Name" name="name" required><br>
+    <label for="description">Description</label><br>
+    <textarea rows="4" cols="50" name="description" placeholder="Describe the issue"></textarea>
+    <label for="cars">Choose the severity:</label>
+
+<select name="Severity" id="Severity" name="Severity">
+  <option value="tweak">Tweak</option>
+  <option value="minor">Minor</option>
+  <option value="major">Major</option>
+  <option value="crash">Crash</option>
+</select>
+    <br>
+    <label for="reporter">Qa_Engineer_name(Reporter)</label><br>
+    <input type="text" id="name" placeholder="Reporter Name" name="Reporter" required><br>
+    <label for="name">Status</label><br>
+    <select name="status" id="Severity" >
+      <option value="open">open</option>
+      <option value="resolved">resolved</option>
+      <option value="validated">validated</option>
+      <option value="closed">closed</option>
+    </select>
+    <input type="submit" value="Submit">
+
+</form>
+</div>
+
+</body>
+</html>

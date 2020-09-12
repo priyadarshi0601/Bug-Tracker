@@ -1,0 +1,71 @@
+<html lang="en">
+    <head>
+        <style>
+            .issue_content{
+                margin-left: 15px;
+                font-size: large;
+                padding: 10px;
+            }
+            .boxes{
+                margin: 15px;
+                margin-top: 20px;        
+                padding-left:17px;
+                padding-top: 1px;
+                padding-bottom: 1px;
+                border-left: solid 8px blue;
+                line-height: 100%;
+                text-decoration: none;
+                font-style: italic;
+            }
+            .boxes:hover{
+                background-color:cyan;
+                cursor: pointer;
+            }
+            .sup{
+                text-decoration: none;
+                color: black;
+            }
+            body{   
+                background-image: url("https://images.unsplash.com/photo-1502201684351-c156ded4d3c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .button{
+                text-decoration: none;
+                color: black;
+                font-size:x-large;
+                padding: 15px;
+            }
+            .button:hover{
+                cursor: pointer;
+                color: mediumblue;
+            }
+            h2{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="issue_content">           
+            <h2>All Issues</h2>
+            <a  class ="button" href="/issues">Issues</a>
+        <a class="button" href="/issues/create">Report new Issue</a>
+            <%if(issues.length>0){ %>
+               <% issues.forEach(issue=>{ %>
+                <div class="boxes">
+                    <a class="sup" href="/issues/<%=issue._id %>">
+                    <h3 class="engineer-name">Engineer Concerned : <%=issue.name %></h3>
+                    <h4 class="severity">Severity of the issue : <%=issue.Severity%></h4>
+                    <h4 class="status">Status of the issue : <%=issue.status%></h4>
+                    <p class="description">Description of the issue: <%=issue.description%></p>
+                    </a>
+                </div>
+               <% }) %>
+            <%} else { %>
+                <p>There are no issues.Good job Developers!</p>
+                <%} %>
+        </div>
+    </body>
+</html>

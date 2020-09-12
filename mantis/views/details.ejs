@@ -1,0 +1,77 @@
+<html lang="en">
+    <head>
+        <style>
+            .details_content{
+                margin: 25px;
+                font-style: italic;
+            }
+            p{
+                font-size:large;
+                font-weight:600; 
+            }
+            h2{
+                text-transform: capitalize;
+            }
+            body{
+                background-image: url("https://cdn.hipwallpaper.com/i/17/35/t9vAjx.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .delete{
+                font-size: x-large;
+                font-weight: 600;
+                color:crimson;
+                margin: 10px;
+                margin-top: 20px;
+            }
+            .delete:hover{
+                cursor: pointer;
+                color: red;
+            }
+            .update{
+                font-size: x-large;
+                font-weight: 600;
+                color:blue;
+                margin:10px;
+                margin-top: 20px;
+            }
+            .update:hover{
+                cursor: pointer;
+                color:blueviolet;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="details_content">
+            <h1>The Details</h1>
+            <%=console.log(issue.length)%>
+            <h2>Status: <%=issue.status%></h2>
+            <h2>Severity: <%=issue.Severity%></h2><br>
+            <div class="details_content22">
+                <p>Dear <%=issue.name%>,</p>
+                <p><%=issue.description%></p>
+                <p>Regards,<br><%=issue.Reporter%></p><br><br>
+            </div>
+            <a class="delete" data-doc="<%=issue._id %>">delete</a>
+            <a class="update" data-doc="<%=issue._id %>">update</a>
+        </div>
+        <script>
+            const trashcan = document.querySelector('a.delete');
+        
+            trashcan.addEventListener('click', (e) => {
+              const endpoint = `/issues/${trashcan.dataset.doc}`;
+        
+              fetch(endpoint, {
+                method: 'DELETE',
+              })
+              .then(response => response.json())
+              .then(data => window.location.href = data.redirect)
+              .catch(err => console.log(err));
+            });
+            
+
+            
+            
+          </script>
+    </body>
+</html>
